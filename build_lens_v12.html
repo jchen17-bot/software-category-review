@@ -212,7 +212,7 @@ const QUAD_DEFS = [
 function render() {
   const wrap = document.getElementById('chart-wrap');
   const W = wrap.clientWidth||900, H = wrap.clientHeight||580;
-  const ML=80, MR=20, MT=44, MB=65;
+  const ML=110, MR=20, MT=44, MB=75;
   const PW=W-ML-MR, PH=H-MT-MB;
 
   const pxx = x => ML + x*PW;
@@ -254,22 +254,18 @@ function render() {
 
   // ── Axis labels ───────────────────────────────────────────────────────
   // X axis
-  svgEl.appendChild(mkTxt("Risk and Value Proposition",{x:ML+PW/2,y:H-26,'text-anchor':'middle','font-size':13,'font-weight':'bold',fill:'#333','font-family':'Calibri,Arial,sans-serif'}));
-  svgEl.appendChild(mkTxt("Moderate risk,",{x:ML+6,y:H-50,'font-size':9,fill:'#888','font-family':'Calibri,Arial,sans-serif'}));
-  svgEl.appendChild(mkTxt("limited vendor value",{x:ML+6,y:H-38,'font-size':9,fill:'#AAA','font-family':'Calibri,Arial,sans-serif'}));
-  svgEl.appendChild(mkTxt("High risk: data ownership,",{x:ML+PW-6,y:H-50,'text-anchor':'end','font-size':9,fill:'#888','font-family':'Calibri,Arial,sans-serif'}));
-  svgEl.appendChild(mkTxt("compliance, multi-function",{x:ML+PW-6,y:H-38,'text-anchor':'end','font-size':9,fill:'#AAA','font-family':'Calibri,Arial,sans-serif'}));
-  svgEl.appendChild(mkTxt("Manages significant risks (compliance, data privacy)  ·  Manages workflows across teams  ·  Vendor owns the data",{x:ML+PW/2,y:H-10,'text-anchor':'middle','font-size':8,'font-style':'italic',fill:'#BBBBBB','font-family':'Calibri,Arial,sans-serif'}));
+  svgEl.appendChild(mkTxt("Risk and Value Proposition",{x:ML+PW/2,y:H-28,'text-anchor':'middle','font-size':14,'font-weight':'bold',fill:'#333','font-family':'Calibri,Arial,sans-serif'}));
+  svgEl.appendChild(mkTxt("Moderate risk, limited vendor value",{x:ML+6,y:H-46,'font-size':11,fill:'#888','font-family':'Calibri,Arial,sans-serif'}));
+  svgEl.appendChild(mkTxt("High risk: data ownership, compliance, multi-function",{x:ML+PW-6,y:H-46,'text-anchor':'end','font-size':11,fill:'#888','font-family':'Calibri,Arial,sans-serif'}));
+  svgEl.appendChild(mkTxt("Manages significant risks (compliance, data privacy)  ·  Manages workflows across teams  ·  Vendor owns the data",{x:ML+PW/2,y:H-10,'text-anchor':'middle','font-size':10,'font-style':'italic',fill:'#BBBBBB','font-family':'Calibri,Arial,sans-serif'}));
 
   // Y axis
-  const yg=mkEl('g',{transform:`rotate(-90,28,${MT+PH/2})`});
-  yg.appendChild(mkTxt("Build Feasibility (engineering level of effort to build & maintain)",{x:28,y:MT+PH/2,'text-anchor':'middle','font-size':11,'font-weight':'bold',fill:'#333','font-family':'Calibri,Arial,sans-serif'}));
+  const yg=mkEl('g',{transform:`rotate(-90,22,${MT+PH/2})`});
+  yg.appendChild(mkTxt("Build Feasibility (engineering level of effort to build & maintain)",{x:22,y:MT+PH/2,'text-anchor':'middle','font-size':12,'font-weight':'bold',fill:'#333','font-family':'Calibri,Arial,sans-serif'}));
   svgEl.appendChild(yg);
-  svgEl.appendChild(mkTxt("Complex build:",{x:ML-10,y:MT+14,'text-anchor':'middle','font-size':9,fill:'#888','font-family':'Calibri,Arial,sans-serif'}));
-  svgEl.appendChild(mkTxt("large team,",{x:ML-10,y:MT+26,'text-anchor':'middle','font-size':8,fill:'#AAA','font-family':'Calibri,Arial,sans-serif'}));
-  svgEl.appendChild(mkTxt("long timeline",{x:ML-10,y:MT+37,'text-anchor':'middle','font-size':8,fill:'#AAA','font-family':'Calibri,Arial,sans-serif'}));
-  svgEl.appendChild(mkTxt("Easy to build",{x:ML-10,y:MT+PH-8,'text-anchor':'middle','font-size':9,fill:'#888','font-family':'Calibri,Arial,sans-serif'}));
-  svgEl.appendChild(mkTxt("relatively",{x:ML-10,y:MT+PH+4,'text-anchor':'middle','font-size':8,fill:'#AAA','font-family':'Calibri,Arial,sans-serif'}));
+  svgEl.appendChild(mkTxt("Complex build:",{x:ML-22,y:MT-18,'text-anchor':'middle','font-size':11,fill:'#777','font-family':'Calibri,Arial,sans-serif'}));
+  svgEl.appendChild(mkTxt("large team, long timeline",{x:ML-22,y:MT-6,'text-anchor':'middle','font-size':10,fill:'#999','font-family':'Calibri,Arial,sans-serif'}));
+  svgEl.appendChild(mkTxt("Easy to build (relatively)",{x:ML-22,y:MT+PH+16,'text-anchor':'middle','font-size':11,fill:'#777','font-family':'Calibri,Arial,sans-serif'}));
 
   // ── Dots ─────────────────────────────────────────────────────────────
   const R = 5; // fixed size (2/3 of original)
